@@ -1,4 +1,5 @@
 import { LOGO_URL } from './Constant';
+import { Link } from 'react-router-dom';
 // filepath: c:\Users\Amit\OneDrive\Desktop\foodweb\foodweb\src\components\Header.jsx
 
 const Header = () => {
@@ -9,9 +10,18 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                   <li><Link to="/">
+                       Home
+                    </Link>
+                    </li>
+                    <li><Link to="/About">
+                        About 
+                    </Link>
+                    </li>
+                    <li><Link to="Contact">
+                        Contact Us
+                    </Link>
+                    </li>
                     <li>Cart</li>
                 </ul>
             </div>

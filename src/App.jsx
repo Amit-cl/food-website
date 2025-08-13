@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom/client';
 
 import Header from './components/Header';
 import Body from './components/Body';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+import About from './components/About';
+import Contact from './components/Contact';
+import Error from './components/Error';
+
 
 /* Components of Our Food-Order App
  * Header
@@ -69,7 +75,7 @@ const Footer = () => {
       <p>
         Copyright &copy; {currYear}, Made with 💗 by <strong>Vasu</strong>
       </p>
- 
+
     </footer>
 
   );
@@ -80,12 +86,34 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet/>
       <Footer />
     </div>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+      path: "/about",
+      element: <About />,
+    },
+      {
+      path: "/",
+      element: <Body />,
+    },
 
+    {
+      path: "/contact",
+      element: <Contact />,
+    }],
+    errorElement: <Error />,
+  },
 
-export default AppLayout
+]);
+export default function App() {
+  return <RouterProvider router={appRouter} />;
+}
