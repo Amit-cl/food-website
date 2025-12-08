@@ -16,4 +16,4 @@ const RestrorantMenu = () => {
   )
 }
 
-export default RestrorantMenu
+export default RestrorantMenu 

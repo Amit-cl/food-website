@@ -74,20 +74,18 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            // * Filter logic
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
+       <button
+  className="filter-btn"
+  onClick={() => {
+    const filteredList = listOfRestaurants.filter(
+      (res) => res.info.avgRating > 4.3
+    );
+    setFilteredRestaurant(filteredList);
+  }}
+>
+  Top Rated Restaurants
+</button>
 
-            setListOfRestaurants(filteredList);
-            console.log(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
       </div>
       <div className="res-container">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
